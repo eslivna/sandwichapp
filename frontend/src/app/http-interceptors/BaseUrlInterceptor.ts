@@ -18,11 +18,16 @@ export class BaseUrlInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     if (BACKEND_URL) {
       console.log('entered');
-      console.log(req);
+      let url="";
+      if(req.url.includes(BACKEND_URL)){
+        url = req.url;
+      }else{
+        url = `${BACKEND_URL}${req.url}`
+      }
       req = req.clone({
-        url: `${BACKEND_URL}${req.url}`
+        url: url
       });
-      console.log('set to ', `${BACKEND_URL}${req.url}`);
+      console.log('set to ', `${url}`);
     }
     return next.handle(req);
   }
