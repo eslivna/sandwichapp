@@ -1,0 +1,22 @@
+<div class="product-wrapper">
+  <mat-card class="header">
+      Edit a product
+  </mat-card>
+  <mat-card>
+      <form [formGroup]='form' (ngSubmit)='onSubmit()'>
+          <mat-chip *ngIf='errorMsg' color="warn">{{errorMsg}}</mat-chip>
+          <mat-form-field>
+              <input matInput placeholder="product name " formControlName='name'>
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput placeholder="category" formControlName='category'>
+          </mat-form-field>
+          <tag-input formControlName='ingredients' [modelAsStrings]="true" placeholder="Insert a new ingredient" secondaryPlaceholder='Enter an ingredient'>
+          </tag-input>
+          <mat-form-field>
+              <input matInput placeholder="price" formControlName='price' type="number">
+          </mat-form-field>
+          <button mat-raised-button color="primary" type="submit">Save</button>
+      </form>
+  </mat-card>
+</div>

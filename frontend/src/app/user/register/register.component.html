@@ -1,0 +1,42 @@
+<div align="center">
+  <mat-card class="register">
+    <form [formGroup]='user' (ngSubmit)='onSubmit()'>
+      <mat-chip *ngIf='errorMsg' color="warn">{{errorMsg}}</mat-chip>
+      <p align="center">Register</p>
+      <mat-form-field>
+        <input matInput placeholder="Username" formControlName="username">
+        <mat-error *ngIf='user.get("username").errors?.userAlreadyExists && user.get("username").touched'>
+          A user with that name already exists
+        </mat-error>
+
+        <mat-error *ngIf=' user.get("username").errors?.required && user.get("username").touched'>
+          A username is required
+        </mat-error>
+        <mat-error *ngIf='user.get("username").errors?.minlength && user.get("username").touched'>
+          The username should be at least {{user.get("username").errors?.minlength.requiredLength }} letters
+        </mat-error>
+        <mat-error *ngIf='user.get("username").errors?.userAlreadyExists && user.get("username").touched'>
+          A user with that name already exists
+        </mat-error>
+      </mat-form-field>
+      <div formGroupName='passwordGroup'>
+        <mat-form-field>
+          <input matInput placeholder="Password" type="password" id="password" formControlName='password'>
+          <mat-error *ngIf=' passwordControl.errors?.passwordTooShort && passwordControl.touched'>
+            Password too short, please use at least {{passwordControl.errors?.passwordTooShort.requiredLength}} letters (got {{passwordControl.errors?.passwordTooShort.actualLength}})
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Confirm password" type="password" id="confirmpassword" formControlName='confirmPassword' [errorStateMatcher]="parentErrorStateMatcher">
+          <mat-error *ngIf=' user.get("passwordGroup").errors?.passwordsDiffer && user.get("passwordGroup").get("confirmPassword").touched  && user.get("passwordGroup").get("password").touched'>
+            The two passwords should be the same
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="button-row">
+        <a mat-raised-button color="primary" routerLink="">Cancel</a>
+        <button mat-raised-button color="primary" [disabled]='!user.valid' type="submit">Register</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

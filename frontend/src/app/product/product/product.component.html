@@ -1,0 +1,41 @@
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened class="category-wrapper">
+
+    <mat-card class="cat-header header">
+      Categories
+    </mat-card>
+    <div>
+      <a mat-button class="btn" *ngFor="let c of categories;" [ngx-scroll-to]=c>
+        {{c}}
+      </a>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="product-wrapper">
+      <div class="product-loading-shade" *ngIf="isLoadingResults">
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+      </div>
+
+      <mat-card class="header">
+        List with all the product
+      </mat-card>
+      <mat-card align="center">
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker1" placeholder="Order date" [formControl]="date" #htlmDate>
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+      </mat-card>
+
+      <div *ngFor="let c of categories;">
+        <mat-card class="accent" id={{c}}>
+          {{c | uppercase}}
+        </mat-card>
+        <div *ngFor="let product of data | categoryFilter:c">
+          <app-product-details [product]="product" (clickOrder)='openDialog($event)'></app-product-details>
+        </div>
+      </div>
+    </div>
+
+  </mat-drawer-content>
+</mat-drawer-container>

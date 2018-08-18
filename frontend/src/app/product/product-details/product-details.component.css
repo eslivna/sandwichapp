@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.mat-card {
+  padding: 12px;
+  margin-bottom: 0px;
+}
+
+.mat-action-row {
+  padding: 16px 24px;
+}

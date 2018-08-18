@@ -1,0 +1,11 @@
+<mat-card>
+  <mat-card-header>
+    <div class=wrapper>
+    <div>
+      <mat-card-title>{{product.name}}</mat-card-title>
+      <mat-card-subtitle>{{product.ingredients}}</mat-card-subtitle>
+    </div>
+      <button mat-button (click)="openDialog()">{{product.price | currency}} | Order</button>
+  </div>
+  </mat-card-header>
+</mat-card>

@@ -1,0 +1,15 @@
+form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .product-wrapper {
+    margin: auto;
+    max-width: 1000px;
+  }
+  
+  .header {
+    background-color: rgb(63, 81, 181);
+    color: white;
+  }
+  

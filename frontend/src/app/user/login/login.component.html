@@ -1,0 +1,15 @@
+<div align="center">
+  <mat-card class="login">
+    <form [formGroup]='user' (ngSubmit)='onSubmit()'>
+      <mat-chip *ngIf='errorMsg' color="warn">{{errorMsg}}</mat-chip>
+      <p align="center">Login</p>
+      <mat-form-field>
+        <input matInput placeholder="Username" formControlName='username'>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Password" type="password" formControlName='password'>
+      </mat-form-field>
+      <button mat-raised-button color="primary"  [disabled]='!user.valid' type="submit">Login</button>
+    </form>
+  </mat-card>
+</div>

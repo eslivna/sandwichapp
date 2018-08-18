@@ -1,0 +1,30 @@
+<div class="table-container">
+    <table mat-table [dataSource]="data" class="example-table">
+      <!-- Number Column -->
+      <ng-container matColumnDef="productName">
+        <th mat-header-cell *matHeaderCellDef>Product name</th>
+        <td mat-cell *matCellDef="let row">{{row.productName}}</td>
+      </ng-container>
+
+      <!-- Title Column -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>Price</th>
+        <td mat-cell *matCellDef="let row">{{row.price}}</td>
+      </ng-container>
+
+      <!-- State Column -->
+      <ng-container matColumnDef="orderDate">
+        <th mat-header-cell *matHeaderCellDef>Order Date</th>
+        <td mat-cell *matCellDef="let row">{{row.orderDate | date}}</td>
+      </ng-container>
+
+      <!-- Created Column -->
+      <ng-container matColumnDef="created">
+        <th mat-header-cell *matHeaderCellDef> Created </th>
+        <td mat-cell *matCellDef="let row">{{row.created | date}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>

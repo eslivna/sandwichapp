@@ -1,0 +1,61 @@
+/* Structure */
+.manage-wrapper {
+  margin: auto;
+  max-width: 1000px;
+}
+
+.header {
+  background-color: rgb(63, 81, 181);
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.table-container {
+  position: relative;
+  overflow: auto;
+}
+
+.loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  position: relative;
+}
+
+table {
+  width: 100%;
+}
+
+/* Column Widths */
+.mat-column-name,
+.mat-column-category,
+.mat-column-price {
+  max-width: 80px;
+}
+
+.mat-column-actions {
+  max-width: 50px;
+}
+
+.mat-column-ingredients {
+  max-width: 160px;
+}
+
+.mat-button {
+  min-width: 56px;
+}

@@ -1,0 +1,11 @@
+<div class="order-wrapper">
+    <mat-card class="header">
+        Orders
+    </mat-card>
+    <div class="container mat-elevation-z8">
+        <div class="loading-shade" *ngIf="isLoadingResults">
+            <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+        </div>
+        <app-order-details [data]=data></app-order-details>
+    </div>
+</div>

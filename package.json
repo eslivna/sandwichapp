@@ -1,0 +1,35 @@
+{
+    "name": "frontend",
+    "version": "1.0.0",
+    "description": "esli demo app",
+    "homepage": "https://github.com/eslivna",
+    "scripts": {
+        "start": "node server",
+        "deploy-backend": "git subtree push --prefix backend backend-webapps master",
+        "build-frontend": "cd frontend && ng build --prod",
+        "commit-build-changes": "git add . && git commit -m \"chore(build): build files\"",
+        "deploy-frontend": "npm run build-frontend && npm run copy && npm run commit-build-changes && git subtree push --prefix serve-frontend frontend-webapps master",
+        "copy": "cpx '/frontend/dist/**' /serve-frontend/www"
+    },
+    "author": {
+        "name": "Esli Van Acoleyen",
+        "email": "eslivanacoleyen@hotmail.com",
+        "web": "https://github.com/eslivna/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/eslivna/webapps4/"
+    },
+    "engines": {
+        "node": ">=6.0.0"
+    },
+    "dependencies": {
+        "connect": "^3.6.5",
+        "serve-static": "^1.13.1"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "copyfiles": "^2.0.0",
+        "cpx": "^1.5.0"
+    }
+}
