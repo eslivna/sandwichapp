@@ -8,7 +8,7 @@ let jwt = require('express-jwt');
 let auth = jwt({ secret: process.env.BACKEND_SECRET });
 
 router.get('/', function(req, res, next) {
-  res.send('server works');
+  res.send('server works!');
 });
 
 //Get all products
