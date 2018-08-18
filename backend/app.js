@@ -30,7 +30,7 @@ app.use(passport.initialize());
 
 
 app.use('/static', express.static(path.join(__dirname, 'public')))
-app.use('/', indexRouter);
+app.use('', indexRouter);
 app.use('/API/users', usersRouter);
 
 // catch 404 and forward to error handler
