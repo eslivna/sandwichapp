@@ -19,6 +19,10 @@ export class BaseUrlInterceptor implements HttpInterceptor {
     if (BACKEND_URL) {
       console.log('entered');
       console.log(req);
+      console.log('backend url');
+      console.log(BACKEND_URL);
+      console.log('req url');
+      console.log(req.url);
       req = req.clone({
         url: `${req.url}`
       });
