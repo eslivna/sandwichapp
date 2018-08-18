@@ -32,7 +32,6 @@ const routes = [
     RegisterComponent,
     LogoutComponent,
     ProfileComponent
-  ],
-  providers: [basehttpInterceptorProviders]
+  ]
 })
 export class UserModule {}
