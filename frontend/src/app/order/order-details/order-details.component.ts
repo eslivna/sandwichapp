@@ -7,8 +7,15 @@ import { Order } from '../order.model';
   styleUrls: ['./order-details.component.css']
 })
 export class OrderDetailsComponent implements OnInit {
-  displayedColumns: string[] = ['productName', 'price', 'orderDate', 'created'];
-  @Input() data: Order[];
+  displayedColumns: string[] = [
+    'customerName',
+    'productName',
+    'price',
+    'orderDate',
+    'created'
+  ];
+  @Input()
+  data: Order[];
 
   constructor() {}
 

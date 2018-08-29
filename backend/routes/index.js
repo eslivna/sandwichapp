@@ -74,7 +74,8 @@ router.put('/API/product/:id', function(req, res) {
 });
 
 router.get('/API/orders/', function(req, res, next) {
-  Order.find(function(err, orders) {
+  let query = Order.find().populate('user');
+  query.exec(function(err, orders) {
     if (err) {
       return next(err);
     }
