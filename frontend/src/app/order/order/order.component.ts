@@ -33,9 +33,6 @@ export class OrderComponent implements OnInit {
           return observableOf([]);
         })
       )
-      .subscribe(data => (this.data = data),
-      () => {},
-      ()=> {console.log(this.data)}
-    );
+      .subscribe(data => (this.data = data));
   }
 }

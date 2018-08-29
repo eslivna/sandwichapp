@@ -8,6 +8,7 @@ import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LogoutComponent } from './logout/logout.component';
 import { ProfileComponent } from './profile/profile.component';
+import { OrdersComponent } from './orders/orders.component';
 
 const routes = [
   { path: 'profile', component: ProfileComponent },
@@ -25,6 +26,7 @@ const routes = [
     RouterModule.forChild(routes)
   ],
   declarations: [
+    OrdersComponent,
     LoginComponent,
     RegisterComponent,
     LogoutComponent,

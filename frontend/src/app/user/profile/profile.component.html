@@ -1,17 +1,12 @@
 <div class='profile-wrapper'>
   <mat-card>
     Welkom {{currentUser | async }}
-    <div *ngIf="isAdmin;else other_content">
-        is admin
-    </div>
-    
-    <ng-template #other_content>is no admin</ng-template>
   </mat-card>
 
   <div class="container mat-elevation-z8">
     <div class="loading-shade" *ngIf="isLoadingResults">
       <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
     </div>
-    <!-- <app-order-details [data]=data></app-order-details> -->
+    <app-orders [data]=data></app-orders>
   </div>
 </div>
