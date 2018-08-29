@@ -10,10 +10,10 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { MaterialModule } from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ProductModule } from './product/product.module';
 import { OrderModule } from './order/order.module';
 import { UserModule } from './user/user.module';
 import { HomeComponent } from './home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,10 +23,10 @@ import { HomeComponent } from './home/home.component';
     HomeComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     TagInputModule,
     BrowserModule,
     UserModule,
-    ProductModule,
     OrderModule,
     MaterialModule,
     AppRoutingModule,

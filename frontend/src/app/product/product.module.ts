@@ -19,7 +19,7 @@ import { ProductResolver } from './product-resolver';
 
 const routes = [
   { path: 'manage', component: ManageProductsComponent },
-  { path: 'products', component: ProductComponent },
+  { path: 'list', component: ProductComponent },
   { path: 'add', component: AddProductComponent },
   {
     path: 'edit/:id',

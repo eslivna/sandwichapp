@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatSnackBarModule,
   MatMenuModule,
@@ -28,7 +27,6 @@ import {
 
 @NgModule({
   imports: [
-    BrowserAnimationsModule,
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,

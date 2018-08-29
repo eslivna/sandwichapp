@@ -16,9 +16,9 @@
       </button>
       <a mat-button routerLink=".">Sandwhich</a>
       <div *ngIf='(currentUser | async)'>
-        <a mat-button routerLink="products">Product Overview</a>
+        <a mat-button routerLink="product/list">Product Overview</a>
         <a *ngIf='(isAdmin)' mat-button routerLink="orders">Orders</a>
-        <a *ngIf='(isAdmin)' mat-button routerLink="manage">Manage</a>
+        <a *ngIf='(isAdmin)' mat-button routerLink="product/manage">Manage</a>
       </div>
       <span class="spacer"></span>
       <div *ngIf='(currentUser | async) else loginlink'>
