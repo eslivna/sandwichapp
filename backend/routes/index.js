@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 });
 
 //Get all products
-router.get('/API/products/', auth,function(req, res, next) {
+router.get('/API/products/', auth, function(req, res, next) {
   Product.find(function(err, products) {
     if (err) {
       return next(err);
@@ -73,6 +73,20 @@ router.put('/API/product/:id', function(req, res) {
   );
 });
 
+router.param('order', function(req, res, next, id) {
+  let query = Order.findById(id);
+  query.exec(function(err, order) {
+    if (err) {
+      return next(err);
+    }
+    if (!order) {
+      return next(new Error('not found ' + id));
+    }
+    req.order = order;
+    return next();
+  });
+});
+
 router.get('/API/orders/', function(req, res, next) {
   let query = Order.find().populate('user');
   query.exec(function(err, orders) {
@@ -91,6 +105,16 @@ router.post('/API/orders/', auth, function(req, res, next) {
       return next(err);
     }
     res.json(rec);
+  });
+});
+
+//Delete product
+router.delete('/API/order/:order', auth, function(req, res) {
+  req.order.remove(function(err) {
+    if (err) {
+      return next(err);
+    }
+    res.json(req.order);
   });
 });
 

@@ -21,7 +21,7 @@
       </mat-card>
       <mat-card align="center">
         <mat-form-field>
-          <input matInput [matDatepicker]="picker1" placeholder="Order date" [formControl]="date" #htlmDate>
+          <input matInput [min]="minDate" [matDatepicker]="picker1" placeholder="Order date" [formControl]="date" #htlmDate>
           <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
           <mat-datepicker #picker1></mat-datepicker>
         </mat-form-field>

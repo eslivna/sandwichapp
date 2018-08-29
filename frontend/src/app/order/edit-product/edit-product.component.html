@@ -6,21 +6,21 @@
         <form [formGroup]='form' (ngSubmit)='onSubmit()'>
             <mat-chip *ngIf='errorMsg' color="warn">{{errorMsg}}</mat-chip>
             <mat-form-field>
-                <input matInput placeholder="product name " formControlName='name'>
-                <mat-error *ngIf='product.get("name").errors?.required && product.get("name").touched'>
+                <input matInput placeholder="product name" formControlName='name'>
+                <mat-error *ngIf='form.get("name").errors?.required && form.get("name").touched'>
                     A product name is required
                 </mat-error>
-                <mat-error *ngIf='product.get("name").errors?.minlength && product.get("name").touched'>
-                    The product name must have at least {{product.get("name").errors?.minlength.requiredLength }} letters
+                <mat-error *ngIf='form.get("name").errors?.minlength && form.get("name").touched'>
+                    The product name must have at least {{form.get("name").errors?.minlength.requiredLength }} letters
                 </mat-error>
             </mat-form-field>
             <mat-form-field>
                 <input matInput placeholder="category" formControlName='category'>
-                <mat-error *ngIf=' product.get("category").errors?.required && product.get("category").touched'>
+                <mat-error *ngIf=' form.get("category").errors?.required && form.get("category").touched'>
                     A category is required
                 </mat-error>
-                <mat-error *ngIf='product.get("category").errors?.minlength && product.get("category").touched'>
-                    The category name must have at least {{product.get("category").errors?.minlength.requiredLength }} letters
+                <mat-error *ngIf='form.get("category").errors?.minlength && form.get("category").touched'>
+                    The category name must have at least {{form.get("category").errors?.minlength.requiredLength }} letters
                 </mat-error>
             </mat-form-field>
             <tag-input formControlName='ingredients' [modelAsStrings]="true" placeholder="Insert a new ingredient" secondaryPlaceholder='Enter an ingredient'>
@@ -28,10 +28,10 @@
             <mat-form-field>
                 <input matInput placeholder="price" formControlName='price' type="number">
             </mat-form-field>
-            <mat-error *ngIf=' product.get("price").errors?.required && product.get("price").touched'>
+            <mat-error *ngIf=' form.get("price").errors?.required && form.get("price").touched'>
                 price is required
             </mat-error>
-            <mat-error *ngIf='product.get("price").errors?.min && product.get("price").touched'>
+            <mat-error *ngIf='form.get("price").errors?.min && form.get("price").touched'>
                 The price must be greater than or equal to 0 }}
             </mat-error>
             <button mat-raised-button color="primary" [disabled]='!form.valid' type="submit">Save</button>

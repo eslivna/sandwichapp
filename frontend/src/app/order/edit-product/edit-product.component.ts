@@ -36,7 +36,7 @@ export class EditProductComponent implements OnInit {
       name: ['', [Validators.required, Validators.minLength(4)]],
       ingredients: ['', Validators.required],
       category: ['', [Validators.required, Validators.minLength(4)]],
-      price: [0, [Validators.required, Validators.min(0)]]
+      price: [[Validators.required, Validators.min(0)]]
     });
 
     this.route.data.subscribe(item => {

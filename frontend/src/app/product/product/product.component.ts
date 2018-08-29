@@ -22,6 +22,7 @@ export class ProductComponent implements OnInit {
   isLoadingResults = true;
   categories = new Set<string>();
   date = new FormControl(new Date());
+  minDate= new Date();
 
   constructor(
     private _sandwichDataService: SandwichDataService,
