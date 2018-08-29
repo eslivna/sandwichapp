@@ -3,9 +3,11 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="false">
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <div *ngIf='(currentUser | async)'>
+        <a mat-list-item href="product/list">Product Overview</a>
+        <a *ngIf='(isAdmin)' mat-list-item href="admin/orders">Orders</a>
+        <a *ngIf='(isAdmin)' mat-list-item href="admin/manage">Manage</a>
+      </div>
     </mat-nav-list>
   </mat-sidenav>
 
@@ -27,6 +29,7 @@
           Logout
         </a>
       </div>
+
       <ng-template #loginlink>
         <a mat-button routerLink="register">
           <mat-icon class="icon">person_add</mat-icon>Register

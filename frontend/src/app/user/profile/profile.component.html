@@ -7,6 +7,6 @@
     <div class="loading-shade" *ngIf="isLoadingResults">
       <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
     </div>
-    <app-orders [data]=data></app-orders>
+    <app-orders [data]=data (removeOrder)='deleteOrder($event)'></app-orders>
   </div>
 </div>
