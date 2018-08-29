@@ -1,12 +1,27 @@
 <h1 mat-dialog-title>Order details</h1>
 <div mat-dialog-content>
-  <div align="center">
-    <h4>  {{data.order.productName}}</h4>
-    <p><strong>{{data.order.price | currency}}</strong></p>
-  </div>
-
+  <mat-grid-list cols="2" rowHeight="30px">
+    <mat-grid-tile>
+      product:
+    </mat-grid-tile>
+    <mat-grid-tile>
+      {{data.order.productName}}
+    </mat-grid-tile>
+    <mat-grid-tile>
+      order date:
+    </mat-grid-tile>
+    <mat-grid-tile>
+      {{data.order.orderDate |date}}
+    </mat-grid-tile>
+    <mat-grid-tile>
+      price:
+    </mat-grid-tile>
+    <mat-grid-tile>
+      {{data.order.price | currency}}
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>
-<div mat-dialog-actions>
+<div mat-dialog-actions align='center'>
   <button mat-button (click)="onNoClick()">Cancel</button>
   <button mat-button (click)="onConfirm()">Confirm</button>
 </div>

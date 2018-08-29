@@ -41,8 +41,9 @@ export class ProductComponent implements OnInit {
       new Date()
     );
     this.dialog.open(DialogConfirmOrderComponent, {
-      maxHeight: '600px',
-      maxWidth: '300px',
+      minWidth: '350px',
+      maxHeight: '650px',
+      maxWidth: '400px',
       data: { order: order }
     });
   }
