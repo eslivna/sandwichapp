@@ -7,16 +7,34 @@
             <mat-chip *ngIf='errorMsg' color="warn">{{errorMsg}}</mat-chip>
             <mat-form-field>
                 <input matInput placeholder="product name " formControlName='name'>
+                <mat-error *ngIf='product.get("name").errors?.required && product.get("name").touched'>
+                    A product name is required
+                </mat-error>
+                <mat-error *ngIf='product.get("name").errors?.minlength && product.get("name").touched'>
+                    The product name must have at least {{product.get("name").errors?.minlength.requiredLength }} letters
+                </mat-error>
             </mat-form-field>
             <mat-form-field>
                 <input matInput placeholder="category" formControlName='category'>
+                <mat-error *ngIf=' product.get("category").errors?.required && product.get("category").touched'>
+                    A category is required
+                </mat-error>
+                <mat-error *ngIf='product.get("category").errors?.minlength && product.get("category").touched'>
+                    The category name must have at least {{product.get("category").errors?.minlength.requiredLength }} letters
+                </mat-error>
             </mat-form-field>
             <tag-input formControlName='ingredients' [modelAsStrings]="true" placeholder="Insert a new ingredient" secondaryPlaceholder='Enter an ingredient'>
             </tag-input>
             <mat-form-field>
                 <input matInput placeholder="price" formControlName='price' type="number">
+                <mat-error *ngIf=' product.get("price").errors?.required && product.get("price").touched'>
+                    price is required
+                </mat-error>
+                <mat-error *ngIf='product.get("price").errors?.min && product.get("price").touched'>
+                    The price must be greater than or equal to 0 }}
+                </mat-error>
             </mat-form-field>
-            <button mat-raised-button color="primary" type="submit">Add product</button>
+            <button mat-raised-button color="primary" [disabled]='!product.valid' type="submit">Add product</button>
         </form>
     </mat-card>
 </div>

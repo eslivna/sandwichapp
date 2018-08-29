@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {
   FormGroup,
-  FormBuilder
+  FormBuilder,
+  Validators
 } from '../../../../node_modules/@angular/forms';
 import {
   ActivatedRoute,
@@ -32,10 +33,10 @@ export class EditProductComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      name: [''],
-      ingredients: [''],
-      category: [''],
-      price: []
+      name: ['', [Validators.required, Validators.minLength(4)]],
+      ingredients: ['', Validators.required],
+      category: ['', [Validators.required, Validators.minLength(4)]],
+      price: [0, [Validators.required, Validators.min(0)]]
     });
 
     this.route.data.subscribe(item => {
@@ -65,7 +66,7 @@ export class EditProductComponent implements OnInit {
         }: ${error.error}`;
       },
       () => {
-        this._router.navigate(['manage']).then(() =>
+        this._router.navigate(['/admin/manage']).then(() =>
           this.snackBar.open(
             `Product ${this._product.name} successfully updated`,
             '',

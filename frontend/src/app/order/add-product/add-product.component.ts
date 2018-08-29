@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Product } from '../../product/product.model';
 import { SandwichDataService } from '../../product/sandwich-data.service';
+import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-product',
@@ -15,15 +17,17 @@ export class AddProductComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private _sandwhichDataService: SandwichDataService
+    private _sandwhichDataService: SandwichDataService,
+    private _router: Router,
+    public snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
     this.product = this.fb.group({
-      name: [''],
-      ingredients: [''],
-      category: [''],
-      price: []
+      name: ['', [Validators.required, Validators.minLength(4)]],
+      ingredients: ['', Validators.required],
+      category: ['', [Validators.required, Validators.minLength(4)]],
+      price: [0, [Validators.required, Validators.min(0)]]
     });
   }
 
@@ -41,6 +45,13 @@ export class AddProductComponent implements OnInit {
         this.errorMsg = `Error ${error.status} while adding product  ${
           product.name
         }: ${error.error}`;
+      },
+      () => {
+        this._router.navigate(['/admin/manage']).then(() =>
+          this.snackBar.open(`Product ${product.name} successfully added`, '', {
+            duration: 2000
+          })
+        );
       }
     );
   }
