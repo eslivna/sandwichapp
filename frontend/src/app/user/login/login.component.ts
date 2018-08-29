@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
           } else {
             this.errorMsg = `Error ${err.status} while trying to login user ${
               this.user.value.username
-            }: ${err.error}`;
+            }`;
           }
         }
       );

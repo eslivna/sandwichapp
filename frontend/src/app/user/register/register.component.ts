@@ -95,15 +95,13 @@ export class RegisterComponent implements OnInit {
       .subscribe(
         val => {
           if (val) {
-            this.router.navigate(['/products']);
+            this.router.navigate(['/product/list']);
           }
         },
         (error: HttpErrorResponse) => {
           this.errorMsg = `Error ${
             error.status
-          } while trying to register user ${this.user.value.username}: ${
-            error.error
-          }`;
+          } while trying to register user ${this.user.value.username}`;
         }
       );
   }
