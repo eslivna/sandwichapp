@@ -10,10 +10,11 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { MaterialModule } from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
-import { OrderModule } from './order/order.module';
 import { UserModule } from './user/user.module';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import { httpInterceptorProviders, basehttpInterceptorProviders } from './http-interceptors';
 
 @NgModule({
   declarations: [
@@ -23,16 +24,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent
   ],
   imports: [
+    BrowserModule,
     BrowserAnimationsModule,
     TagInputModule,
-    BrowserModule,
     UserModule,
-    OrderModule,
     MaterialModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders, basehttpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

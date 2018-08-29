@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { merge, of as observableOf } from 'rxjs';
 import { catchError, map, startWith, switchMap } from 'rxjs/operators';
-import { SandwichDataService } from '../sandwich-data.service';
-import { Product } from '../product.model';
 import { HttpErrorResponse } from '../../../../node_modules/@angular/common/http';
 import { MatSnackBar } from '../../../../node_modules/@angular/material';
+import { Product } from '../../product/product.model';
+import { SandwichDataService } from '../../product/sandwich-data.service';
 
 @Component({
   selector: 'app-manage-products',
@@ -52,6 +52,7 @@ export class ManageProductsComponent implements OnInit {
   }
 
   removeProduct(product: Product) {
+    console.log(product);
     this._sandwichDataService.removeProduct(product).subscribe(
       item => (this.data = this.data.filter(val => item.id !== val.id)),
       (error: HttpErrorResponse) => {

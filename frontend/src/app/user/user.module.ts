@@ -8,8 +8,6 @@ import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LogoutComponent } from './logout/logout.component';
 import { ProfileComponent } from './profile/profile.component';
-import { OrderModule } from '../order/order.module';
-import { basehttpInterceptorProviders } from '../http-interceptors';
 
 const routes = [
   { path: 'profile', component: ProfileComponent },
@@ -20,11 +18,10 @@ const routes = [
 
 @NgModule({
   imports: [
-    HttpClientModule,
     CommonModule,
+    HttpClientModule,
     ReactiveFormsModule,
     MaterialModule,
-    OrderModule,
     RouterModule.forChild(routes)
   ],
   declarations: [

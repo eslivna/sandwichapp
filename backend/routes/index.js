@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 });
 
 //Get all products
-router.get('/API/products/', function(req, res, next) {
+router.get('/API/products/', auth,function(req, res, next) {
   Product.find(function(err, products) {
     if (err) {
       return next(err);

@@ -4,9 +4,9 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot
 } from '@angular/router';
-import { SandwichDataService } from './sandwich-data.service';
-import { Product } from './product.model';
-import { Observable } from '../../../node_modules/rxjs';
+import { Product } from '../product/product.model';
+import { Observable } from 'rxjs';
+import { SandwichDataService } from '../product/sandwich-data.service';
 
 @Injectable()
 export class ProductResolver implements Resolve<Product> {

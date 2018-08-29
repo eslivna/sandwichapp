@@ -1,15 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { SandwichDataService } from '../sandwich-data.service';
-import { Product } from '../product.model';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Observable } from '../../../../node_modules/rxjs/internal/Observable';
-import { of } from '../../../../node_modules/rxjs';
-import { filter } from '../../../../node_modules/rxjs/operators';
-import {
-  TagInputForm,
-  TagInputComponent
-} from '../../../../node_modules/ngx-chips';
+import { Product } from '../../product/product.model';
+import { SandwichDataService } from '../../product/sandwich-data.service';
 
 @Component({
   selector: 'app-add-product',

@@ -2,7 +2,7 @@
   <mat-card class="header">
     Manage your products
     <span class="spacer"></span>
-    <a mat-fab color="accent" matTooltip="Add a new product" matTooltipPosition="after" href="add">
+    <a mat-fab color="accent" matTooltip="Add a new product" matTooltipPosition="after" routerLink="/admin/add">
       <i class="material-icons">
         add
       </i>
@@ -43,7 +43,7 @@
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef> Actions </th>
           <td mat-cell *matCellDef="let row">
-            <a mat-button color="warn" routerLink='/edit/{{row.id}}'>
+            <a mat-button color="warn" routerLink='/admin/edit/{{row.id}}'>
               <i class="material-icons">
                 edit
               </i>

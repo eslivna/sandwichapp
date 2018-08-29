@@ -3,10 +3,16 @@ import { PageNotFoundComponent } from '../page-not-found/page-not-found.componen
 import { NgModule } from '@angular/core';
 import { HomeComponent } from '../home/home.component';
 import { AuthGuardService } from '../user/auth-guard.service';
-import { ProductComponent } from '../product/product/product.component';
 import { SelectivePreloadStrategy } from './SelectivePreloadStrategy';
+import { AdminAuthGuardService } from '../user/admin-auth-guard.service';
 
 const appRoutes: Routes = [
+  
+  {
+    path: 'admin',
+    canActivate: [AdminAuthGuardService],
+    loadChildren: '../order/order.module#OrderModule',
+  },
   {
     path: 'product',
     canActivate: [AuthGuardService],
@@ -19,7 +25,9 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes, { preloadingStrategy: SelectivePreloadStrategy })
+    RouterModule.forRoot(appRoutes, {
+      preloadingStrategy: SelectivePreloadStrategy
+    })
   ],
   providers: [SelectivePreloadStrategy],
   declarations: [],

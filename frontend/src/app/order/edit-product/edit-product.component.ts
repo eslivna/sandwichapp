@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Product } from '../product.model';
 import {
   FormGroup,
   FormBuilder
@@ -8,9 +7,10 @@ import {
   ActivatedRoute,
   Router
 } from '../../../../node_modules/@angular/router';
-import { SandwichDataService } from '../sandwich-data.service';
 import { HttpErrorResponse } from '../../../../node_modules/@angular/common/http';
 import { MatSnackBar } from '../../../../node_modules/@angular/material';
+import { Product } from '../../product/product.model';
+import { SandwichDataService } from '../../product/sandwich-data.service';
 
 @Component({
   selector: 'app-edit-product',

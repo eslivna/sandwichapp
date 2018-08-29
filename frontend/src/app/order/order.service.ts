@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Order } from './order.model';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs/internal/Observable';
+import { Product } from '../product/product.model';
 
 @Injectable({
   providedIn: 'root'
