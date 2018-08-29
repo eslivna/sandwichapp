@@ -26,7 +26,7 @@ export class AddProductComponent implements OnInit {
     this.product = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(4)]],
       ingredients: ['', Validators.required],
-      category: ['', [Validators.required, Validators.minLength(4)]],
+      category: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]],
       price: [0, [Validators.required, Validators.min(0)]]
     });
   }

@@ -22,6 +22,9 @@
                 <mat-error *ngIf='product.get("category").errors?.minlength && product.get("category").touched'>
                     The category name must have at least {{product.get("category").errors?.minlength.requiredLength }} letters
                 </mat-error>
+                <mat-error *ngIf='product.get("category").errors?.maxlength && product.get("category").touched'>
+                    The category name can contain a maximum of {{product.get("category").errors?.maxlength.requiredLength }} letters
+                </mat-error>
             </mat-form-field>
             <tag-input formControlName='ingredients' [modelAsStrings]="true" placeholder="Insert a new ingredient" secondaryPlaceholder='Enter an ingredient'>
             </tag-input>
